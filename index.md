@@ -4,7 +4,7 @@ active: home
 ---
 
 <section class="intro  section--pad">
-  <h1>Hi, I'm Mark Goodyear.</h1>
+  <h1>DTA</h1>
 </section>
 
 <section class="posts  section--pad">
