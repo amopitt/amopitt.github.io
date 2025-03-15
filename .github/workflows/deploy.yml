@@ -8,7 +8,7 @@ on:
 permissions:
   id-token: write
   pages: write
-  contents: write  
+  contents: read
 
 concurrency:
   group: 'pages'
@@ -37,22 +37,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-          name: site-build  # Changed artifact name
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site-build  # Updated to match upload
-          path: ./dist
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
